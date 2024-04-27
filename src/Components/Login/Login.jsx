@@ -3,6 +3,13 @@ import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+  };
   return (
     <div className="max-w-[1170px] mx-auto">
       <div className="hero min-h-screen">
@@ -17,7 +24,7 @@ const Login = () => {
             </p>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -43,7 +50,10 @@ const Login = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn text-white bg-[#8B4513] hover:bg-primary">
+                <button
+                  type="submit"
+                  className="btn text-white bg-[#8B4513] hover:bg-primary"
+                >
                   Login
                 </button>
               </div>
