@@ -40,7 +40,7 @@ const Header = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#8B4513] rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-[#8B4513] rounded-box w-52"
             >
               {navLinks}
             </ul>
@@ -49,7 +49,7 @@ const Header = () => {
             to="/"
             className="text-lg lg:text-xl text-white bg-[#8B4513] px-2 lg:px-3 py-2 rounded-lg"
           >
-            JUWoody Art
+            <h2>JUWoody Art</h2>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
