@@ -7,6 +7,12 @@
 .active {
   border-top: 2px solid #8b4513;
   border-bottom: 2px solid #8b4513;
+  padding-bottom: 2px;
+}
+.heading {
+  /* border-top: 2px solid #8b4513; */
+  border-bottom: 2px solid #8b4513;
+  padding-bottom: 2px;
 }
 h1,
 h2,
