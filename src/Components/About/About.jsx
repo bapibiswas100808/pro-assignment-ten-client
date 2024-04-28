@@ -16,7 +16,9 @@ const About = () => {
             />
           </div>
           <div className="w-full lg:w-1/2">
-            <h1 className="text-3xl font-bold">Know More About Us!</h1>
+            <h1 className="text-3xl font-bold text-center lg:text-left">
+              Know More About Us!
+            </h1>
             <p className="py-6">
               Step into the world of ZUWoody, where artistry intertwines with
               the natural world. Our store offers a diverse array of handcrafted
@@ -30,9 +32,11 @@ const About = () => {
               the artistry of skilled craftsmanship. Explore our collection and
               bring a touch of organic beauty into your home.
             </p>
-            <button className="btn bg-[#8B4513] hover:bg-primary text-white">
-              Learn More!
-            </button>
+            <div className="text-center lg:text-left">
+              <button className="btn bg-[#8B4513] hover:bg-primary text-white">
+                Learn More!
+              </button>
+            </div>
           </div>
         </div>
       </div>

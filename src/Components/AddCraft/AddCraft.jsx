@@ -3,18 +3,22 @@ import { useState } from "react";
 const AddCraft = () => {
   const [checkStock, setCheckStock] = useState("");
   const [checkCustomization, setCheckCustomization] = useState("");
+  const [checkSubCategory, setCheckSubCategory] = useState("");
   const selectStock = (e) => {
     setCheckStock(e.target.value);
   };
   const selectCustomization = (e) => {
     setCheckCustomization(e.target.value);
   };
+  const selectSubCategory = (e) => {
+    setCheckSubCategory(e.target.value);
+  };
   const handleAddCraft = (e) => {
     e.preventDefault();
     const form = e.target;
     const image = form.photo.value;
     const itemName = form.itemName.value;
-    const subCategory = form.subCategory.value;
+    const subCategory = checkSubCategory;
     const processingTime = form.processingTime.value;
     const price = form.price.value;
     const rating = form.rating.value;
@@ -71,14 +75,30 @@ const AddCraft = () => {
           <div className="flex flex-col lg:flex-row gap-5 mb-3">
             <label className="form-control w-full">
               <div className="label">
-                <span className="label-text">Sub Category</span>
+                <span className="label-text">Select Sub Category</span>
               </div>
-              <input
-                type="text"
-                name="subCategory"
-                placeholder="Sub Category Name"
-                className="input input-bordered w-full"
-              />
+              <select
+                onChange={selectSubCategory}
+                className="select select-bordered"
+              >
+                <option disabled selected>
+                  Select a Sub Category?
+                </option>
+                <option value="Wooden Furniture & Sculptures">
+                  Wooden Furniture & Sculptures
+                </option>
+                <option value="Wooden Home Decor">Wooden Home Decor</option>
+                <option value="Wooden Utensils and Kitchenware">
+                  Wooden Utensils and Kitchenware
+                </option>
+                <option value="Jute Home Decor">Jute Home Decor</option>
+                <option value="Jute Kitchenware & utensils">
+                  Jute Kitchenware & utensils
+                </option>
+                <option value="Jute and wooden Jewellery">
+                  Jute and wooden Jewellery
+                </option>
+              </select>
             </label>
             <label className="form-control w-full">
               <div className="label">

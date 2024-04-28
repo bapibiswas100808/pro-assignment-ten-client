@@ -34,7 +34,7 @@ const Footer = () => {
         </nav>
       </footer>
       <footer className=" px-10 py-4 border-t max-w-[1170px] mx-auto flex flex-col md:flex-row lg:flex-row space-y-5 lg:space-y-0 items-center justify-between">
-        <div className="flex">
+        <div className="flex gap-5">
           <img className="max-h-[50px]" src={footerLogo} alt="" />
           <p>
             <span className="text-xl font-bold mr-4">JUWoody Art</span> <br />
