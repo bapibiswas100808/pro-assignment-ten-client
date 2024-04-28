@@ -27,7 +27,14 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      { path: "/craftList", element: <CraftList></CraftList> },
+      {
+        path: "/craftList",
+        element: (
+          <PrivateRoute>
+            <CraftList></CraftList>
+          </PrivateRoute>
+        ),
+      },
       { path: "/login", element: <Login></Login> },
       { path: "/register", element: <Register></Register> },
     ],
