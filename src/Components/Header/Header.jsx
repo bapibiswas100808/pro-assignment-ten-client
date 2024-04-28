@@ -1,6 +1,19 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const navLinks = (
     <>
       <li className="text-white text-lg">
@@ -56,18 +69,44 @@ const Header = () => {
           <ul className="flex items-center gap-5 px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end space-x-4">
-          <Link
-            to="/register"
-            className="py-2 px-2 lg:px-4 rounded-lg bg-[#8B4513] text-white border-0 hover:bg-primary"
-          >
-            Register
-          </Link>
-          <Link
-            to="/login"
-            className="py-2 px-2 lg:px-4 rounded-lg bg-[#8B4513] text-white border-0 hover:bg-primary"
-          >
-            Login
-          </Link>
+          {user ? (
+            <div className="flex items-center gap-3">
+              <a
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={user?.displayName}
+                data-tooltip-place="left"
+              >
+                <img
+                  className="max-h-[40px] rounded-full"
+                  src={user?.photoURL}
+                  alt=""
+                />
+              </a>
+              <Tooltip id="my-tooltip" />
+              <Link
+                to="/"
+                onClick={handleLogOut}
+                className="py-2 px-2 lg:px-4 rounded-lg bg-[#8B4513] text-white border-0 hover:bg-primary"
+              >
+                Log Out
+              </Link>
+            </div>
+          ) : (
+            <div className="flex gap-4 items-center">
+              <Link
+                to="/register"
+                className="py-2 px-2 lg:px-4 rounded-lg bg-[#8B4513] text-white border-0 hover:bg-primary"
+              >
+                Register
+              </Link>
+              <Link
+                to="/login"
+                className="py-2 px-2 lg:px-4 rounded-lg bg-[#8B4513] text-white border-0 hover:bg-primary"
+              >
+                Login
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

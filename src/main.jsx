@@ -9,6 +9,8 @@ import CraftList from "./Components/CraftList/CraftList";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import Root from "./Root";
+import AuthProvider from "./Provider/AuthProvider/AuthProvider";
+import PrivateRoute from "./Routes/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,14 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home></Home> },
       { path: "/allCraft", element: <AllCraft></AllCraft> },
-      { path: "/addCraft", element: <AddCraft></AddCraft> },
+      {
+        path: "/addCraft",
+        element: (
+          <PrivateRoute>
+            <AddCraft></AddCraft>
+          </PrivateRoute>
+        ),
+      },
       { path: "/craftList", element: <CraftList></CraftList> },
       { path: "/login", element: <Login></Login> },
       { path: "/register", element: <Register></Register> },
@@ -27,6 +36,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
