@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddCraft = () => {
   const { user } = useContext(AuthContext);
@@ -54,7 +55,12 @@ const AddCraft = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          alert("data added");
+          Swal.fire({
+            title: "Success!",
+            text: "Item added Successfully",
+            icon: "success",
+            confirmButtonText: "Continue",
+          });
         }
       });
   };
