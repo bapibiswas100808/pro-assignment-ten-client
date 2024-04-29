@@ -1,9 +1,9 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllCraft = () => {
   const allCrafts = useLoaderData();
   return (
-    <div className="max-w-[1170px] mx-auto py-5 lg:py-10 px-3 lg:px-0">
+    <div className="max-w-[1170px] mx-auto py-5 lg:py-10 px-3 lg:px-0 allCraft">
       <div className="text-center">
         <h2 className=" text-2xl font-bold mb-5 heading inline-block">
           See All Craft Items: {allCrafts.length}
@@ -48,9 +48,12 @@ const AllCraft = () => {
                   </td>
                   <td>{craft.processingTime}</td>
                   <th>
-                    <button className="btn bg-[#8B4513] hover:bg-primary text-white">
+                    <Link
+                      to={`/showDetails/${craft._id}`}
+                      className="btn bg-[#8B4513] hover:bg-primary text-white"
+                    >
                       Show details
-                    </button>
+                    </Link>
                   </th>
                 </tr>
               ))}

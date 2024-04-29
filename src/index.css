@@ -107,6 +107,9 @@ a {
 .header-area a {
   color: var(--bs-header-link-color) !important;
 }
+.allCraft a {
+  color: var(--bs-header-link-color) !important;
+}
 
 /* #8B4513 (Saddle Brown) */
 /* #3CB371 (Medium Sea Green) */

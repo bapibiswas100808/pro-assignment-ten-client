@@ -12,6 +12,7 @@ import Root from "./Root";
 import AuthProvider from "./Provider/AuthProvider/AuthProvider";
 import PrivateRoute from "./Routes/PrivateRoute/PrivateRoute";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
+import ShowDetails from "./Components/ShowDetails/ShowDetails";
 
 const router = createBrowserRouter([
   {
@@ -38,12 +39,22 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/craftList",
+        path: "/craftList/",
         element: (
           <PrivateRoute>
             <CraftList></CraftList>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/showDetails/:id",
+        element: (
+          <PrivateRoute>
+            <ShowDetails></ShowDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allcraft/${params.id}`),
       },
       { path: "/login", element: <Login></Login> },
       { path: "/register", element: <Register></Register> },

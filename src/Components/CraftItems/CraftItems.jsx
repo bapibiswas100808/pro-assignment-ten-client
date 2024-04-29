@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const CraftItems = ({ allCrafts }) => {
   console.log(allCrafts);
   return (
-    <div className="max-w-[1170px] mx-auto px-3 lg:px-0 py-5 lg:py-20">
+    <div className="max-w-[1170px] mx-auto px-3 lg:px-0 py-5 lg:py-20 allCraft">
       <div className="text-center">
         <h2 className="text-3xl font-bold heading inline-block mb-5 lg:mb-10">
           Craft Items
@@ -19,9 +20,12 @@ const CraftItems = ({ allCrafts }) => {
               <h2 className="card-title">{craft.itemName}</h2>
               <p className="mb-5">{craft.shortDescription}</p>
               <div className="card-actions justify-center">
-                <button className="btn bg-[#8B4513] text-white">
+                <Link
+                  to={`/showDetails/${craft._id}`}
+                  className="btn bg-[#8B4513] hover:bg-primary text-white"
+                >
                   View Details
-                </button>
+                </Link>
               </div>
             </div>
           </div>
