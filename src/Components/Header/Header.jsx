@@ -68,7 +68,7 @@ const Header = () => {
           </div>
           <Link
             to="/"
-            className="text-lg lg:text-xl text-white bg-[#8B4513] px-2 lg:px-3 py-2 rounded-lg font-bold"
+            className="text-md md:text-xl lg:text-xl text-white bg-[#8B4513] px-2 lg:px-3 py-2 rounded-lg font-bold"
           >
             <h2>JUWoody Art</h2>
           </Link>
@@ -77,14 +77,14 @@ const Header = () => {
           <ul className="flex items-center gap-5 px-1">{navLinks}</ul>
         </div>
         {/* Dark/light switch */}
-        <div className="pl-3">
+        <div className="pl-1 lg:pl-3">
           <div className="switch">
             <div className="theme-button text-2xl" onClick={handleMode}>
               <i className="text-white">
                 {theme === "light" ? (
-                  <MdOutlineDarkMode className="fs-5" />
-                ) : (
                   <BsFillSunFill className="fs-5" />
+                ) : (
+                  <MdOutlineDarkMode className="fs-5" />
                 )}
               </i>
             </div>
