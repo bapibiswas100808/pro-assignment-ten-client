@@ -1,7 +1,7 @@
 import footerLogo from "../../assets/images/JW.png";
 const Footer = () => {
   return (
-    <div className="bg-[#3CB371] text-white">
+    <div className="bg-[#3CB371] text-white header-area">
       <footer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-10 max-w-[1170px] mx-auto justify-between  space-y-10 lg:space-y-0 text-center lg:text-left">
         <nav className="flex flex-col mt-10 lg:mt-0">
           <h6 className="footer-title">Services</h6>
@@ -33,7 +33,7 @@ const Footer = () => {
           </a>
         </nav>
       </footer>
-      <footer className=" px-10 py-4 border-t max-w-[1170px] mx-auto flex flex-col md:flex-row lg:flex-row space-y-5 lg:space-y-0 items-center justify-between">
+      <footer className=" px-10 py-4 border-t max-w-[1170px] mx-auto flex flex-col md:flex-row lg:flex-row space-y-5 lg:space-y-0 items-center justify-between header-area">
         <div className="flex gap-5">
           <img className="max-h-[50px]" src={footerLogo} alt="" />
           <p>

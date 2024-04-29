@@ -38,7 +38,7 @@ const Banner = () => {
       }}
     >
       <SwiperSlide>
-        <div className="lg:h-screen">
+        <div className="lg:h-screen banner-area">
           <div
             className="hero min-h-screen"
             style={{
@@ -47,7 +47,7 @@ const Banner = () => {
           >
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-lg animate__animated animate__fadeInRight">
+              <div className="max-w-lg ">
                 <h1 className="mb-5 text-5xl font-bold">
                   J
                   <Typewriter
@@ -61,7 +61,7 @@ const Banner = () => {
                     delaySpeed={2000}
                   />
                 </h1>
-                <p className="mb-5 font-poppins animate__rubberBand">
+                <p className="mb-5 text-white ">
                   Discover JUWoody Art Store, where craftsmanship meets natures
                   bounty. Explore our exquisite collection of jute and wood
                   crafts, blending rustic charm with eco-friendly elegance.
@@ -84,7 +84,7 @@ const Banner = () => {
           >
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-lg animate__animated animate__fadeInRight">
+              <div className="max-w-lg ">
                 <h1 className="mb-5 text-5xl font-bold ">
                   J
                   <Typewriter
@@ -98,7 +98,7 @@ const Banner = () => {
                     delaySpeed={2000}
                   />
                 </h1>
-                <p className="mb-5 font-poppins">
+                <p className="mb-5 text-white">
                   Discover JUWoody Art Store, where craftsmanship meets natures
                   bounty. Explore our exquisite collection of jute and wood
                   crafts, blending rustic charm with eco-friendly elegance.
@@ -121,7 +121,7 @@ const Banner = () => {
           >
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-lg animate__animated animate__fadeInRight">
+              <div className="max-w-lg ">
                 <h1 className="mb-5 text-5xl font-bold ">
                   J
                   <Typewriter
@@ -135,7 +135,7 @@ const Banner = () => {
                     delaySpeed={2000}
                   />
                 </h1>
-                <p className="mb-5 font-poppins">
+                <p className="mb-5  text-white">
                   Discover JUWoody Art Store, where craftsmanship meets natures
                   bounty. Explore our exquisite collection of jute and wood
                   crafts, blending rustic charm with eco-friendly elegance.

@@ -2,9 +2,17 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { Tooltip } from "react-tooltip";
+import { ThemeContext } from "../ThemeContext/ThemeContext";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { BsFillSunFill } from "react-icons/bs";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  const { theme, setTheme } = useContext(ThemeContext);
+  // Theme Selection
+  const handleMode = () => {
+    setTheme((currentTheme) => (currentTheme === "light" ? "dark" : "light"));
+  };
   const handleLogOut = () => {
     logOut()
       .then((result) => {
@@ -31,7 +39,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className="bg-[#3CB371]">
+    <div className=" header-area">
       <div className="navbar max-w-[1170px] mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -60,13 +68,27 @@ const Header = () => {
           </div>
           <Link
             to="/"
-            className="text-lg lg:text-xl text-white bg-[#8B4513] px-2 lg:px-3 py-2 rounded-lg"
+            className="text-lg lg:text-xl text-white bg-[#8B4513] px-2 lg:px-3 py-2 rounded-lg font-bold"
           >
             <h2>JUWoody Art</h2>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="flex items-center gap-5 px-1">{navLinks}</ul>
+        </div>
+        {/* Dark/light switch */}
+        <div className="pl-3">
+          <div className="switch">
+            <div className="theme-button text-2xl" onClick={handleMode}>
+              <i className="text-white">
+                {theme === "light" ? (
+                  <MdOutlineDarkMode className="fs-5" />
+                ) : (
+                  <BsFillSunFill className="fs-5" />
+                )}
+              </i>
+            </div>
+          </div>
         </div>
         <div className="navbar-end space-x-4">
           {user ? (
