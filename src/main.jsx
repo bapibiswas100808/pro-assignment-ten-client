@@ -19,8 +19,16 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
-      { path: "/", element: <Home></Home> },
-      { path: "/allCraft", element: <AllCraft></AllCraft> },
+      {
+        path: "/",
+        element: <Home></Home>,
+        loader: () => fetch("http://localhost:5000/allcraft"),
+      },
+      {
+        path: "/allCraft",
+        element: <AllCraft></AllCraft>,
+        loader: () => fetch("http://localhost:5000/allcraft"),
+      },
       {
         path: "/addCraft",
         element: (
