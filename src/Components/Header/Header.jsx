@@ -8,6 +8,7 @@ import { BsFillSunFill } from "react-icons/bs";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user);
   const { theme, setTheme } = useContext(ThemeContext);
   // Theme Selection
   const handleMode = () => {

@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
 const AddCraft = () => {
+  const { user } = useContext(AuthContext);
   const [checkStock, setCheckStock] = useState("");
   const [checkCustomization, setCheckCustomization] = useState("");
   const [checkSubCategory, setCheckSubCategory] = useState("");
@@ -27,7 +29,7 @@ const AddCraft = () => {
     const stock = checkStock;
     const name = form.name.value;
     const email = form.email.value;
-    console.log(
+    const newData = {
       image,
       itemName,
       subCategory,
@@ -38,8 +40,23 @@ const AddCraft = () => {
       customization,
       stock,
       name,
-      email
-    );
+      email,
+    };
+    // send data
+    fetch("http://localhost:5000/allCraft", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          alert("data added");
+        }
+      });
   };
   return (
     <div className="max-w-[1170px] mx-auto min-h-screen px-3 lg:px-0">
@@ -54,6 +71,7 @@ const AddCraft = () => {
               </div>
               <input
                 type="text"
+                required
                 name="photo"
                 placeholder="Photo Url"
                 className="input input-bordered w-full"
@@ -65,6 +83,7 @@ const AddCraft = () => {
               </div>
               <input
                 type="text"
+                required
                 name="itemName"
                 placeholder="Item Name"
                 className="input input-bordered w-full"
@@ -78,6 +97,7 @@ const AddCraft = () => {
                 <span className="label-text">Select Sub Category</span>
               </div>
               <select
+                required
                 onChange={selectSubCategory}
                 className="select select-bordered"
               >
@@ -106,6 +126,7 @@ const AddCraft = () => {
               </div>
               <input
                 type="text"
+                required
                 name="processingTime"
                 placeholder="Processing Time"
                 className="input input-bordered w-full"
@@ -119,6 +140,7 @@ const AddCraft = () => {
                 <span className="label-text">Price</span>
               </div>
               <input
+                required
                 type="number"
                 name="price"
                 placeholder="price"
@@ -131,6 +153,7 @@ const AddCraft = () => {
               </div>
               <input
                 type="number"
+                required
                 name="rating"
                 placeholder="Rating"
                 className="input input-bordered w-full"
@@ -145,6 +168,7 @@ const AddCraft = () => {
               </div>
               <textarea
                 type="text"
+                required
                 placeholder="Short Description"
                 name="shortDescription"
                 className="input input-bordered w-full h-24"
@@ -160,6 +184,7 @@ const AddCraft = () => {
               <select
                 onChange={selectCustomization}
                 className="select select-bordered"
+                required
               >
                 <option disabled selected>
                   Do You want To customize?
@@ -172,7 +197,11 @@ const AddCraft = () => {
               <div className="label">
                 <span className="label-text">Stock Status</span>
               </div>
-              <select onChange={selectStock} className="select select-bordered">
+              <select
+                onChange={selectStock}
+                className="select select-bordered"
+                required
+              >
                 <option disabled selected>
                   Select Stock Status?
                 </option>
@@ -191,6 +220,8 @@ const AddCraft = () => {
               <input
                 type="text"
                 name="name"
+                defaultValue={user?.displayName}
+                readOnly
                 placeholder="Name"
                 className="input input-bordered w-full"
               />
@@ -201,6 +232,8 @@ const AddCraft = () => {
               </div>
               <input
                 type="email"
+                defaultValue={user?.email}
+                readOnly
                 name="email"
                 placeholder="Email"
                 className="input input-bordered w-full"
