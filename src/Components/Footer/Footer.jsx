@@ -38,7 +38,7 @@ const Footer = () => {
           <img className="max-h-[50px]" src={footerLogo} alt="" />
           <p>
             <span className="text-xl font-bold mr-4">JUWoody Art</span> <br />
-            All right reserved.
+            Copyright@All right reserved.
             <br />
             Providing creative and authentic Products since 1992
           </p>
