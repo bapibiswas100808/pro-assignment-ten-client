@@ -52,6 +52,7 @@ button {
   --bs-footer-color: #1a1c1e;
   --bs-top-bg-sidebar: #1a1c1e;
   --bs-link-color: #ffffff;
+  --bs-bg-outlet: #1a1c1e;
 }
 
 .top-side {
