@@ -52,7 +52,7 @@ const CraftList = () => {
     });
   };
   return (
-    <div className="max-w-[1170px] mx-auto py-5 lg:py-20 craftList">
+    <div className="max-w-[1170px] mx-auto py-5 lg:py-20 craftList px-3 lg:px-0">
       <div>
         <div className="text-center">
           <h2 className="text-2xl lg:text-3xl font-bold heading inline-block mb-5">
