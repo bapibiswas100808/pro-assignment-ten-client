@@ -3,10 +3,16 @@ import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import { Toaster } from "react-hot-toast";
 import { ThemeContext } from "./Components/ThemeContext/ThemeContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Root = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
   return (
     <>
       <ThemeContext.Provider value={{ theme, setTheme }}>
