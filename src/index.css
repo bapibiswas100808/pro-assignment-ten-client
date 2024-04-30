@@ -53,6 +53,10 @@ button {
   --bs-top-bg-sidebar: #1a1c1e;
   --bs-link-color: #ffffff;
   --bs-bg-outlet: #1a1c1e;
+  --var-heading-color: #ffffff;
+  --bs-label-color: #ffffff;
+  --bs-header-link-color: #ffffff;
+  --bs-table-text-color-state: #ffffff;
 }
 
 .top-side {
@@ -88,6 +92,7 @@ input,
 textarea,
 select {
   background-color: var(--bs-table-color-state) !important;
+  color: var(--bs-table-text-color-state) !important;
 }
 th,
 td {
