@@ -14,6 +14,7 @@ import PrivateRoute from "./Routes/PrivateRoute/PrivateRoute";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import ShowDetails from "./Components/ShowDetails/ShowDetails";
 import UpdateCraft from "./UpdateCraft/UpdateCraft";
+import CategoryDetails from "./CategoryDetails/CategoryDetails";
 
 const router = createBrowserRouter([
   {
@@ -24,12 +25,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/allcraft"),
+        loader: () =>
+          fetch("https://pro-assignment-ten-server.vercel.app/allcraft"),
       },
       {
         path: "/allCraft",
         element: <AllCraft></AllCraft>,
-        loader: () => fetch("http://localhost:5000/allcraft"),
+        loader: () =>
+          fetch("https://pro-assignment-ten-server.vercel.app/allcraft"),
       },
       {
         path: "/addCraft",
@@ -55,7 +58,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allcraft/${params.id}`),
+          fetch(
+            `https://pro-assignment-ten-server.vercel.app/allcraft/${params.id}`
+          ),
       },
       {
         path: "/updateCraft/:id",
@@ -65,7 +70,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allcraft/${params.id}`),
+          fetch(
+            `https://pro-assignment-ten-server.vercel.app/allcraft/${params.id}`
+          ),
+      },
+      {
+        path: "/categoryDetails/:id",
+        element: (
+          <PrivateRoute>
+            <CategoryDetails></CategoryDetails>
+          </PrivateRoute>
+        ),
       },
       { path: "/login", element: <Login></Login> },
       { path: "/register", element: <Register></Register> },

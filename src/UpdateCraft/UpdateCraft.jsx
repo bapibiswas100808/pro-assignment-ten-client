@@ -42,13 +42,16 @@ const UpdateCraft = () => {
       stock,
     };
     // send data
-    fetch(`http://localhost:5000/allCraft/${craft?._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newData),
-    })
+    fetch(
+      `https://pro-assignment-ten-server.vercel.app/allCraft/${craft?._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

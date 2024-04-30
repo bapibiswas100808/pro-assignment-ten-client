@@ -44,7 +44,7 @@ const AddCraft = () => {
       email,
     };
     // send data
-    fetch("http://localhost:5000/allCraft", {
+    fetch("https://pro-assignment-ten-server.vercel.app/allCraft", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -61,6 +61,7 @@ const AddCraft = () => {
             icon: "success",
             confirmButtonText: "Continue",
           });
+          form.reset();
         }
       });
   };

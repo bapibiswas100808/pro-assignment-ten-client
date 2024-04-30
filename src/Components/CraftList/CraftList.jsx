@@ -13,7 +13,7 @@ const CraftList = () => {
     return craft.customization === filteredCraft;
   });
   useEffect(() => {
-    fetch(`http://localhost:5000/myCraft/${user.email}`)
+    fetch(`https://pro-assignment-ten-server.vercel.app/myCraft/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -32,7 +32,7 @@ const CraftList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/allcraft/${id}`, {
+        fetch(`https://pro-assignment-ten-server.vercel.app/allcraft/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
