@@ -126,8 +126,8 @@ const AddCraft = () => {
                 <option value="Jute Kitchenware & utensils">
                   Jute Kitchenware & utensils
                 </option>
-                <option value="Jute and wooden Jewellery">
-                  Jute and wooden Jewellery
+                <option value="Jute and wooden jewellery">
+                  Jute and wooden jewellery
                 </option>
               </select>
             </label>
