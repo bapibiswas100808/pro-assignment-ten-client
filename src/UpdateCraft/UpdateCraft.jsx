@@ -55,7 +55,7 @@ const UpdateCraft = () => {
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
-            text: "Craft Updated Successfully",
+            text: "Craft  Updated Successfully",
             icon: "success",
             confirmButtonText: "Continue",
           });

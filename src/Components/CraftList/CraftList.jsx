@@ -6,6 +6,12 @@ import { Link } from "react-router-dom";
 const CraftList = () => {
   const { user } = useContext(AuthContext);
   const [userCraft, setUserCraft] = useState([]);
+  const [filteredCraft, setFilteredCraft] = useState("All");
+
+  const filteredCrafts = userCraft.filter((craft) => {
+    if (filteredCraft === "All") return true;
+    return craft.customization === filteredCraft;
+  });
   useEffect(() => {
     fetch(`http://localhost:5000/myCraft/${user.email}`)
       .then((res) => res.json())
@@ -29,7 +35,7 @@ const CraftList = () => {
         fetch(`http://localhost:5000/allcraft/${id}`, {
           method: "DELETE",
         })
-          .then((res) => res.json)
+          .then((res) => res.json())
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
@@ -38,6 +44,8 @@ const CraftList = () => {
                 text: "Your Craft has been deleted.",
                 icon: "success",
               });
+              const remaining = userCraft.filter((craft) => craft._id !== id);
+              setUserCraft(remaining);
             }
           });
       }
@@ -45,13 +53,29 @@ const CraftList = () => {
   };
   return (
     <div className="max-w-[1170px] mx-auto py-5 lg:py-20 craftList">
-      <div className="text-center">
-        <h2 className="text-2xl lg:text-3xl font-bold heading inline-block mb-5">
-          <span className="mr-2"> Hi {user.displayName}!</span> See Your Crafts!
-        </h2>
+      <div>
+        <div className="text-center">
+          <h2 className="text-2xl lg:text-3xl font-bold heading inline-block mb-5">
+            <span className="mr-2"> Hi {user.displayName}!</span> See Your
+            Crafts!
+          </h2>
+        </div>
+        <div className="text-center mb-5">
+          <select
+            onChange={(e) => setFilteredCraft(e.target.value)}
+            className="select select-bordered w-full max-w-xs"
+          >
+            <option disabled selected>
+              Filter Crafts
+            </option>
+            <option value="All">All</option>
+            <option value="Yes">Customized</option>
+            <option value="No">Not Customized</option>
+          </select>
+        </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-        {userCraft?.map((craft, idx) => (
+        {filteredCrafts?.map((craft, idx) => (
           <div key={idx} className="border rounded-lg">
             <div className="hero">
               <div className="hero-content flex-col lg:flex-row gap-10">
