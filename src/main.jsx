@@ -13,6 +13,7 @@ import AuthProvider from "./Provider/AuthProvider/AuthProvider";
 import PrivateRoute from "./Routes/PrivateRoute/PrivateRoute";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import ShowDetails from "./Components/ShowDetails/ShowDetails";
+import UpdateCraft from "./UpdateCraft/UpdateCraft";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,16 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ShowDetails></ShowDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allcraft/${params.id}`),
+      },
+      {
+        path: "/updateCraft/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateCraft></UpdateCraft>
           </PrivateRoute>
         ),
         loader: ({ params }) =>

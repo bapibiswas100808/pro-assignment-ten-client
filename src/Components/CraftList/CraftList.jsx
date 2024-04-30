@@ -1,5 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const CraftList = () => {
   const { user } = useContext(AuthContext);
@@ -12,8 +14,37 @@ const CraftList = () => {
         setUserCraft(data);
       });
   }, [user]);
+  const handleDelete = (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/allcraft/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json)
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your Craft has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+      }
+    });
+  };
   return (
-    <div className="max-w-[1170px] mx-auto py-5 lg:py-20">
+    <div className="max-w-[1170px] mx-auto py-5 lg:py-20 craftList">
       <div className="text-center">
         <h2 className="text-2xl lg:text-3xl font-bold heading inline-block mb-5">
           <span className="mr-2"> Hi {user.displayName}!</span> See Your Crafts!
@@ -55,10 +86,16 @@ const CraftList = () => {
                     </p>
                   </div>
                   <div className="flex gap-5 mt-4">
-                    <button className="btn bg-[#8B4513] text-white hover:bg-primary">
+                    <Link
+                      to={`/updateCraft/${craft._id}`}
+                      className="btn bg-[#8B4513] text-white hover:bg-primary"
+                    >
                       Update
-                    </button>
-                    <button className="btn bg-[#8B4513] text-white hover:bg-primary">
+                    </Link>
+                    <button
+                      onClick={() => handleDelete(craft._id)}
+                      className="btn bg-[#8B4513] text-white hover:bg-primary"
+                    >
                       Delete
                     </button>
                   </div>
