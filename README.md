@@ -10,7 +10,8 @@ JUWoody Art is an art and craft store website built with React, Tailwind CSS, an
 - run: npm i, to get node modules
 - run: npm run dev, to open the live link
 
-### Technology Used: React, Tailwind CSS, Google Firebase, MongoDB, Node Js, Express
+### Technology Used: 
+React, Tailwind CSS, Google Firebase, MongoDB, Node Js, Express
 ### Key Features:
 - This website is built for an art and craft store where user can add their art or craft with proper details and price
 - Anyone can order those arts or crafts work and he/she also can manage their order
