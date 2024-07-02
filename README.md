@@ -4,6 +4,11 @@
 
 ## Live-Link: https://pro-assignment-ten.web.app/
 
+### Steps to Use this repo:
+- Clone the project with the repository Url
+- run: npm i, to get node modules
+- run: npm run dev, to open the live link
+
 ## About my website:
 
 - My website leverages a modern tech stack, including React for the frontend, Vite for fast development, and Tailwind CSS for efficient styling, ensuring a smooth and responsive user experience.
