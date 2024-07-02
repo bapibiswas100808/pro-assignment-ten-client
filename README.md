@@ -1,17 +1,24 @@
-### React + Vite
 
 ## The Name Of my website is: JUWoody Art
 
 ## Live-Link: https://pro-assignment-ten.web.app/
+### Project Overview:
+JUWoody Art is an art and craft store website built with React, Tailwind CSS, and Firebase. It allows users to add, order, and manage art and craft items. Key features include secure authentication, a responsive design, dark mode, real-time notifications, and interactive alerts, providing a seamless user experience
 
-### Steps to Use this repo:
+### Steps to Use this repository:
 - Clone the project with the repository Url
 - run: npm i, to get node modules
 - run: npm run dev, to open the live link
 
-## About my website:
+### Technology Used: React, Tailwind CSS, Google Firebase, MongoDB, Node Js, Express
+### Key Features:
+- This website is built for an art and craft store where user can add their art or craft with proper details and price
+- Anyone can order those arts or crafts work and he/she also can manage their order
+- This website has a dark mood feature which is done for the user's good experience at night
 
-- My website leverages a modern tech stack, including React for the frontend, Vite for fast development, and Tailwind CSS for efficient styling, ensuring a smooth and responsive user experience.
+## More About my website:
+
+- My website leverages a modern tech stack, including React for the front end, Vite for fast development, and Tailwind CSS for efficient styling, ensuring a smooth and responsive user experience.
 
 - With features like Daisy UI components for intuitive user interface elements, React Hot Toast for real-time notifications, and SweetAlert 2 for interactive alerts, My website offers enhanced user interaction and engagement.
 
@@ -19,8 +26,6 @@
 
 - By utilizing MongoDB for server-side data storage, my website can efficiently manage and retrieve data, offering scalability and performance benefits for handling dynamic content.
 
-- My website is designed to be responsive across all devices, ensuring seamless user experiences regardless of screen size or device type.
-
 - npm packages used: React Simple Typewriter and React Tooltip
 
-- My selected Category is : Website Themes: (Art & Craft Store) Jute & wooden Crafts
+
